@@ -162,4 +162,3 @@ Based on [Spring PetClinic Microservices](https://github.com/spring-petclinic/sp
 ## License
 
 The Leak to Lease code is shared for viewing only; no license is granted for reuse. Spring PetClinic keeps its own Apache 2.0 license.
-The Leak to Lease code is shared for viewing only; no license is granted for reuse. Spring PetClinic keeps its own Apache 2.0 license.

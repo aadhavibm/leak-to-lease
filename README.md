@@ -13,7 +13,7 @@ part of the submission.
 
 ## Demo
 
-<!-- Aadhav: upload and link the demo video here. -->
+[Watch or download the demo](./demo.mp4).
 
 ## The problem
 

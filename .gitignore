@@ -5,6 +5,7 @@ __pycache__/
 !.env.example
 *.egg-info/
 *.mp4
+!/demo.mp4
 *.mov
 radar-findings.json
 radar-scan-report*.json

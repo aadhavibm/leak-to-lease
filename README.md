@@ -1,6 +1,8 @@
 # Leak to Lease
 
-**1st place overall, solo entry, at IBM's Virtual Bobathon.** 46 teams and 98 participants. [IBM's winner announcement](https://lnkd.in/p/gGgmWNZT)
+**A Python MCP server that lets IBM Bob shut down a leaked database password without breaking the app, then prove the old password no longer works.**
+
+🏆 **1st place overall, solo entry, at IBM's Virtual Bobathon.** 46 teams and 98 participants. [IBM's winner announcement](https://lnkd.in/p/gGgmWNZT)
 
 **[▶ Watch the demo](./demo.mp4)**
 
@@ -18,18 +20,6 @@ Leak to Lease joins the fix into one approved workflow:
 4. **Prove** it's dead with a real login attempt, before and after rotation
 
 The demo runs on Spring PetClinic. Its Customers, Vets, and Visits services each reach MySQL through their own Vault role. Config Server, Discovery, and Gateway complete the six-service app.
-
-## Before and after
-
-| Check | Starting state | Result after the workflow |
-|---|---|---|
-| Original demo credential | MySQL accepts it | MySQL rejects it with error **1045** |
-| Credential-bearing sources | Shared configuration and PetClinic README | Private replay copies are sanitized |
-| App database access | One static credential | Separate leases for Customers, Vets, and Visits |
-| Login lifetime | Never expires | Default **1 hour**, maximum **24 hours** |
-| Application | Database-backed routes respond | Customers, Vets, and Visits **still respond after rotation** |
-
-These are what the replay checks, not a promise about arbitrary repositories or databases. Measured results and any incomplete live checks are recorded in the [verification evidence](docs/evidence/README.md).
 
 ## How it works
 
@@ -159,6 +149,10 @@ colima delete "$DEMO_PROFILE" --force
 
 [`.bob/mcp.json`](.bob/mcp.json) runs the project's virtual environment. Configure Vault authentication privately in the backend environment, and never put tokens in that file or in chat. Restart the MCP connection after changing its environment.
 
+## What's next
+
+Leak to Lease is being turned into an IBM Bob skill.
+
 ## Credits
 
 Built by **Aadhav Manimurugan** · [GitHub](https://github.com/aadhavm10) · [LinkedIn](https://www.linkedin.com/in/aadhav-/)
@@ -167,4 +161,5 @@ Based on [Spring PetClinic Microservices](https://github.com/spring-petclinic/sp
 
 ## License
 
+The Leak to Lease code is shared for viewing only; no license is granted for reuse. Spring PetClinic keeps its own Apache 2.0 license.
 The Leak to Lease code is shared for viewing only; no license is granted for reuse. Spring PetClinic keeps its own Apache 2.0 license.

@@ -1,0 +1,2 @@
+{"category":"secret","type":"password_assignment","description":"Password assignment","severity":"low","path":"spring-petclinic-microservices/README.md","textual_context":"...er run -e MYSQL_ROOT_PASSWORD=*** -e MYSQL_D...","metadata":{"start_line":"159","end_line":"159","secret_provider":"MySQL"}}
+{"category":"secret","type":"password_assignment","description":"Password assignment","severity":"low","path":"spring-petclinic-microservices-config/application.yml","textual_context":"    password: ***","metadata":{"start_line":"102","end_line":"102","secret_provider":"MySQL"}}

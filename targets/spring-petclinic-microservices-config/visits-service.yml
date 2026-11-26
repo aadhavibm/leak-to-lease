@@ -1,0 +1,36 @@
+spring:
+  config:
+    activate:
+      on-profile: default
+  cloud:
+    vault:
+      uri: ${VAULT_ADDR:http://127.0.0.1:8200}
+      token: ${SPRING_CLOUD_VAULT_TOKEN:}
+      database:
+        enabled: false
+        role: visits
+        backend: database
+eureka:
+  instance:
+    # enable to register multiple app instances with a random server port
+    instance-id: ${spring.application.name}:${random.uuid}
+
+---
+spring:
+  config:
+    activate:
+      on-profile: docker
+  cloud:
+    vault:
+      uri: ${VAULT_ADDR:http://vault:8200}
+      token: ${SPRING_CLOUD_VAULT_TOKEN:}
+      database:
+        enabled: false
+        role: visits
+        backend: database
+server:
+  port: 8082
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://discovery-server:8761/eureka/

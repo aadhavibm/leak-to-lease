@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "lease-mcp": {
+      "command": "${workspaceFolder}/lease-mcp/.venv/bin/python",
+      "args": [
+        "-m",
+        "lease_mcp.server"
+      ]
+    }
+  }
+}

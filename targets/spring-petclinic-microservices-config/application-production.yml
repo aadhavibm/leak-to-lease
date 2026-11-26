@@ -1,0 +1,27 @@
+management:
+  server:
+    port: ${MANAGEMENT_PORT:9090}
+    address: ${MANAGEMENT_ADDRESS:127.0.0.1}
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: never
+      show-components: never
+      probes:
+        enabled: true
+      group:
+        readiness:
+          include: "*"
+    env:
+      access: none
+    configprops:
+      access: none
+    heapdump:
+      access: none
+    logfile:
+      access: none
+    shutdown:
+      access: none

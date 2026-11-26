@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lease-mcp"
+version = "0.1.0"
+description = "FastMCP server for Vault dynamic database credential lifecycle and leaked credential remediation"
+authors = [{ name = "Aadhav Manimurugan" }]
+classifiers = ["Private :: Do Not Upload"]
+requires-python = ">=3.10"
+dependencies = [
+    "fastmcp>=4.0.0",
+    "hvac>=2.1.0",
+    "mysql-connector-python>=8.0.0",
+    "pydantic>=2.0.0",
+    "python-dotenv>=1.0.0",
+    "PyYAML>=6.0.2,<7",
+]
+
+[project.optional-dependencies]
+test = [
+    "pytest>=8.0.0",
+]
+
+[project.scripts]
+lease-mcp = "lease_mcp.server:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]

@@ -1,0 +1,122 @@
+{
+  "generated_at_utc": "2026-11-26T03:03:56.776118+00:00",
+  "scope": "Current code including post-hackathon improvements; scoped prototype verification, not a bug-free guarantee",
+  "python": {
+    "offline_passed": 232,
+    "default_opt_in_skips": 3,
+    "separately_executed_live_tests": {
+      "database_lifecycle": "passed",
+      "actual_stdio_mcp": "passed",
+      "tls_approle_pool_rollover_and_outage": "passed"
+    },
+    "distinct_tests_passed_including_live": 235
+  },
+  "java": {
+    "total_passed": 92,
+    "modules": {
+      "spring-petclinic-api-gateway": {
+        "tests": 22,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "spring-petclinic-config-server": {
+        "tests": 1,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "spring-petclinic-customers-service": {
+        "tests": 16,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "spring-petclinic-discovery-server": {
+        "tests": 1,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "spring-petclinic-genai-service": {
+        "tests": 8,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "spring-petclinic-vault-support": {
+        "tests": 42,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "spring-petclinic-vets-service": {
+        "tests": 1,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "spring-petclinic-visits-service": {
+        "tests": 1,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      }
+    },
+    "reactor_projects_built": 10
+  },
+  "node": {
+    "timezone_tests_passed": 5
+  },
+  "application_replay": {
+    "services": 6,
+    "credential_before": "ACCEPTED",
+    "credential_after": "REJECTED",
+    "mysql_error_after": 1045,
+    "gateway_reads_and_visit_creation_before_and_after": "passed",
+    "resources": "New owned disposable resources only; cleaned afterward"
+  },
+  "native_lease_acceptance": {
+    "max_ttl_seconds": 45,
+    "traffic_seconds": 105,
+    "successful_operations": {
+      "customers": 192,
+      "vets": 192,
+      "visits": 192
+    },
+    "different_pool_users_per_role": {
+      "customers": 3,
+      "vets": 3,
+      "visits": 3
+    },
+    "normal_rollover_failures": 0,
+    "expired_lease_readiness_and_work_blocking": "passed",
+    "vault_outage_recovery_without_restart": "passed",
+    "root_rotation_and_old_credential_1045": "passed",
+    "private_management_and_secret_free_logs": "passed"
+  },
+  "local_parser_synthetic_scan": {
+    "before": 2,
+    "after": 0,
+    "not_vault_radar": true
+  },
+  "fresh_vault_radar": {
+    "status": "not_executed",
+    "reason": "Private HCP authentication unavailable"
+  },
+  "historical_sanitized_radar": {
+    "before": 2,
+    "after": 0,
+    "current_tree_evidence": false
+  },
+  "fresh_bob_service_orchestration": {
+    "status": "blocked",
+    "observed_http_status": 525
+  },
+  "packaging": "Wheel built and imported outside checkout",
+  "notes": [
+    "Host-suspended attempts were invalidated and rerun with idle sleep prevented.",
+    "Optional paid GenAI provider calls were not made.",
+    "Cached reads and already-borrowed transactions are not forcibly cancelled by lease expiry."
+  ]
+}

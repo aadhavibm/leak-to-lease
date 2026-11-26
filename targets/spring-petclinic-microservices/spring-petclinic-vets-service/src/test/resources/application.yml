@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: vets-service
+  config:
+    import: ""
+  cloud:
+    config:
+      enabled: false
+    vault:
+      enabled: false
+  sql:
+    init:
+      schema-locations: classpath*:db/hsqldb/schema.sql
+      data-locations: classpath*:db/hsqldb/data.sql
+  jpa:
+    hibernate:
+      ddl-auto: none
+
+eureka:
+  client:
+    enabled: false
+
+vets:
+  cache:
+    ttl: 10
+    heap-size: 10

@@ -1,0 +1,32 @@
+services:
+  mysql:
+    image: mysql:8.4.5
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:?Run scripts/demo.py}
+      MYSQL_DATABASE: petclinic
+      MYSQL_ROOT_HOST: "%"
+    labels:
+      io.leak-to-lease.disposable: "true"
+      io.leak-to-lease.owner: ${LEASE_MCP_TEST_OWNER:?Run scripts/demo.py}
+    ports:
+      - "127.0.0.1:3307:3306"
+    tmpfs:
+      - /var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "--silent"]
+      interval: 2s
+      timeout: 2s
+      retries: 90
+
+  vault:
+    image: hashicorp/vault:1.20.4
+    command: ["server", "-dev", "-dev-listen-address=0.0.0.0:8200"]
+    environment:
+      VAULT_DEV_ROOT_TOKEN_ID: ${VAULT_TOKEN:?Run scripts/demo.py}
+    ports:
+      - "127.0.0.1:18200:8200"
+    healthcheck:
+      test: ["CMD", "vault", "status", "-address=http://127.0.0.1:8200"]
+      interval: 2s
+      timeout: 2s
+      retries: 60
